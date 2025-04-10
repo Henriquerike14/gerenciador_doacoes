@@ -25,6 +25,7 @@ public class PaginaPrincipal {
                 break;
             case 2:
                 System.out.println("Listar doações");
+                
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");

@@ -5,12 +5,20 @@ import java.util.ArrayList;
 import gerenciador_doacoes.domain.Doacao;
 
 public class CadastroTxt implements CadastroInterface {
-   
-    private String nomedoArquivo = "doacoes.txt";
-    @Override
-    public ArrayList<Doacao> lerArquivo() {
 
+    @Override
+    public ArrayList<Doacao> listarDoacoes() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listarDoacoes'");
     }
+
+    @Override
+    public void registrarDoacao(Doacao doacao) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'registrarDoacao'");
+    }
+   
+    
     }
     
-}
+
