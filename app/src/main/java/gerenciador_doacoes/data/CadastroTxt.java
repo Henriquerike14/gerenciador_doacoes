@@ -9,7 +9,7 @@ public class CadastroTxt implements CadastroInterface {
     @Override
     public ArrayList<Doacao> listarDoacoes() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listarDoacoes'");
+        throw new UnsupportedOperationException("Abacaxi é bom");
     }
 
     @Override

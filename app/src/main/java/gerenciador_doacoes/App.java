@@ -3,70 +3,17 @@
  */
 package gerenciador_doacoes;
 
-import gerenciador_doacoes.domain.Doacao;
-import gerenciador_doacoes.domain.Pessoa;
-import gerenciador_doacoes.domain.doacao.Alimento;
-import gerenciador_doacoes.domain.doacao.MaterialHigiene;
-import gerenciador_doacoes.domain.doacao.MaterialLimpeza;
-import gerenciador_doacoes.domain.doacao.TipoDoacao;
+import java.io.IOException;
 
+import gerenciador_doacoes.ui.PaginaPrincipal;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+ 
 
-    public static void main(String[] args) {
-        
-
-
-
-         System.out.println("\nBem-vindo ao sistema de gerenciamento de doações:\n");
-
-        // TipoDoacao tipoDoacao = new MaterialLimpeza(5);
-        // TipoDoacao tipoDoacao = new MaterialHigiene(10);
-        TipoDoacao tipoDoacao = new Alimento(30);
+    public static void main(String[] args) throws IOException {
 
         
-
-        Pessoa samuel = new Pessoa("Samuel Raschen", "51998123456", "Rua dos Bobos, nro 0");
-
-        Doacao doacao1 = new Doacao(samuel, tipoDoacao);
-
-        System.out.println(doacao1.toString());
-        System.out.println("-------------------------");
-
-        String doacaoString = doacao1.toString();
-        String[] doacaoArray = doacaoString.split("\\*\\*\\*");
-
-        System.out.println(doacaoArray[0]);
-        System.out.println(doacaoArray[1]);
-
-        String[] pessoaArray = doacaoArray[0].split("'");
-        String[] doacaoArray2 = doacaoArray[1].split("'");
-
-        System.out.println(pessoaArray[1]);
-        System.out.println(pessoaArray[3]);
-        System.out.println(pessoaArray[5]);
-
-        System.out.println(doacaoArray2[1]);
-        System.out.println(doacaoArray2[3]);
-
-        Pessoa samuel2 = new Pessoa(pessoaArray[1], pessoaArray[3], pessoaArray[5]);
-        TipoDoacao tipo = null;
-
-        switch (doacaoArray2[1]) {
-            case "Material de Higiene": tipo = new MaterialHigiene(Integer.parseInt(doacaoArray2[3])); break;
-            case "Material de Limpeza": tipo = new MaterialLimpeza(Integer.parseInt(doacaoArray2[3])); break;
-            case "Alimento": tipo = new Alimento(Integer.parseInt(doacaoArray2[3])); break;        
-                       
-            default:
-                break;
-        }
-      
-        Doacao doacao2 = new Doacao(samuel2, tipo);
-        System.out.println("-------------------------");
-        System.out.println(doacao2.toString());
-        System.out.println(doacao1.toString());
+        PaginaPrincipal paginaInicial = new PaginaPrincipal();
+        paginaInicial.MostrarMenu();
     }
 }
