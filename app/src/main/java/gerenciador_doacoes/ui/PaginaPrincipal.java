@@ -4,6 +4,7 @@ package gerenciador_doacoes.ui;
 import java.util.List;
 import java.util.Scanner;
 
+import gerenciador_doacoes.domain.ControleDoacoes;
 import gerenciador_doacoes.ui.menu.PaginaCadastrarPessoa;
 import gerenciador_doacoes.ui.menu.PaginaCadastros;
 

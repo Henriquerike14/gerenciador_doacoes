@@ -2,8 +2,11 @@ package gerenciador_doacoes.ui.menu;
 
 import java.util.Scanner;
 
-public class PaginaCadastrarPessoa {
 
+import gerenciador_doacoes.domain.ControleDoacoes;
+
+public class PaginaCadastrarPessoa {
+ControleDoacoes controle = new ControleDoacoes();
     public void exibir() {
         Scanner scanner = new Scanner(System.in);
 
@@ -19,6 +22,7 @@ public class PaginaCadastrarPessoa {
         System.out.print("Digite onde mora: ");
         String ondeMora = scanner.nextLine();
 
+   controle.salvar(nome,idade,ondeMora,1,10);
         System.out.println("\nPessoa cadastrada com sucesso!");
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade);
