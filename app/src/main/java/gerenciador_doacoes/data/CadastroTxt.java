@@ -4,31 +4,45 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
 import gerenciador_doacoes.domain.Doacao;
 import gerenciador_doacoes.domain.Pessoa;
+import gerenciador_doacoes.domain.doacao.Alimento;
+import gerenciador_doacoes.domain.doacao.MaterialHigiene;
+import gerenciador_doacoes.domain.doacao.MaterialLimpeza;
 
 public class CadastroTxt implements CadastroInterface {
 
-    private String nomeArquivo = "doacoes.txt"; // Nome do arquivo para as doações
+    private String nomeArquivo = "doados.txt"; // Nome do arquivo para as doações
 
     @Override
     public ArrayList<Doacao> lerArquivo() {
-        ArrayList<Doacao> lista = new ArrayList<>();
+        ArrayList<Doacao> resultado = new ArrayList<>();
         try {
             FileReader arquivo = new FileReader(nomeArquivo);
             BufferedReader entrada = new BufferedReader(arquivo);
             String linha;
             while((linha = entrada.readLine()) != null) {
+                
+             
+                String[] dados = linha.split("'");
+              
 
-                // String[] dados = linha.split(" - ");
-                // if (dados.length != 2) {
-                //     System.out.println("Erro ao ler arquivo: " + linha);
-                //     continue;
-                // }
-                // linhas.add(new Doacao(dados[0], Integer.parseInt(dados[1])));
+           
+                Pessoa pessoa = new Pessoa(dados[1], dados[3], dados[5]);
+                
+                
+                
+                if (dados[7].equals("Alimento")) {
+                 resultado.add(new Doacao(pessoa,new Alimento(Integer.parseInt(dados[9]))));
+                } else if (dados[7].equals("Material de Higiene")) {
+                 resultado.add(new Doacao(pessoa,new MaterialHigiene(Integer.parseInt(dados[9]))));
+                } else if (dados[7].equals("Material de Limpeza")) {
+                 resultado.add(new Doacao(pessoa,new MaterialLimpeza(Integer.parseInt(dados[9]))));
+                }
+              
             }
             arquivo.close();
             entrada.close();
@@ -37,8 +51,8 @@ public class CadastroTxt implements CadastroInterface {
         } catch (Exception e) {
             System.out.println("Erro ao ler arquivo");
         }
-       
-        return lista;
+    
+        return resultado;
     }
     
    
@@ -70,7 +84,7 @@ public class CadastroTxt implements CadastroInterface {
             saida.close();
            
         } catch (Exception e) {
-            System.out.println("Erro ao salvar a lista.");
+            System.out.println("Erro ao salvar a resultado.");
         }
        
 
@@ -85,8 +99,9 @@ public class CadastroTxt implements CadastroInterface {
 
     @Override
     public void excluir(int indice) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+        ArrayList<Doacao> lista = lerArquivo();
+        lista.remove(indice);
+        salvarLista(lista);
     }
 
    
