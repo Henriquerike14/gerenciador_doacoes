@@ -1,0 +1,2 @@
+Pessoa:Nome:'sasa';Telefone:'8767655443';Endereço:'aqui'***Doação:Tipo:'Material de Higiene';Quantidade:'51'
+Pessoa:Nome:'hdujafe';Telefone:'99963456';Endereço:'aqui'***Doação:Tipo:'Material de Higiene';Quantidade:'30'
